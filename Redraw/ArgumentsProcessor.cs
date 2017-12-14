@@ -106,7 +106,7 @@ namespace Redraw
                     "the GhostscriptDevice used for rendering\n"
                     + "DEFAULT: 'jpeg'",
                     o => deviceParseResult = o },
-                { "?|help=",
+                { "?|help",
                     "show this message and exit",
                     o => showUsage = o != null }
             };
