@@ -1,6 +1,8 @@
 # Redraw
 Console application for rendering PDF pages to images on Windows
 
+![Usage](docs/images/usage.png)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
@@ -13,14 +15,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* [Microsoft .NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653)
+* [Microsoft .NET Framework 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=17718)
 
 ### Installation
 
-Just copy over the generated `Redraw.exe` and run it. An installation is not needed.
+Just copy over the generated `gsdll32.dll` as well as `Redraw.exe` and run it. An installation is not needed.
+
+## Ghostscript devices
+
+* [List of supported devices](docs/supported-devices.md)
+* [Details about devices](https://www.ghostscript.com/doc/9.14/Devices.htm)
 
 ## Built With
 
+* [GhostscriptSharp](https://github.com/mephraim/ghostscriptsharp) - Simple C# wrapper for the Ghostscript library
+* [NDesk.Options](http://www.ndesk.org/Options) - Callback-based program option parser
 * [Costura](https://github.com/Fody/Costura) - Embeds dependencies as resources
 
 ## Authors
