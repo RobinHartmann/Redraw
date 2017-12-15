@@ -1,5 +1,5 @@
 # Redraw
-Console application for rendering PDF pages to images on Windows
+Console application for rendering PDF pages to images
 
 ![Usage](docs/images/usage.png)
 
