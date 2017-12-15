@@ -44,22 +44,19 @@ namespace Redraw
 
         public static RedrawConfig Process(string[] arguments)
         {
-            if (arguments.Length == 0)
+            try
             {
-                showUsage = true;
-            }
-            else
-            {
-                try
+                OptionSet.Parse(arguments);
+
+                if (!showUsage)
                 {
-                    OptionSet.Parse(arguments);
                     PostProcessOptions();
                 }
-                catch (OptionException e)
-                {
-                    Console.WriteLine(e.Message);
-                    showUsage = true;
-                }
+            }
+            catch (OptionException e)
+            {
+                Console.WriteLine(e.Message);
+                showUsage = true;
             }
 
             if (showUsage)
