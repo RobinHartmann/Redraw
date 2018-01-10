@@ -111,30 +111,30 @@ namespace Redraw
 
         private static void PostProcessOptions()
         {
-            new OptionProcessor(inputPathParseResult, "-input")
+            new OptionProcessor(inputPathParseResult, "input")
                 .AssertIsSet()
                 .Process(p => inputPath = p);
 
-            new OptionProcessor(outputPathParseResult, "-output")
+            new OptionProcessor(outputPathParseResult, "output")
                 .AddDefault(inputPath + "%d")
                 .Process(p => outputPath = p);
 
-            new OptionProcessor(widthParseResult, "-width")
+            new OptionProcessor(widthParseResult, "width")
                 .AssertIsSet()
                 .ProcessAsInt(p => width = p);
 
-            new OptionProcessor(heightParseResult, "-height")
+            new OptionProcessor(heightParseResult, "height")
                 .AssertIsSet()
                 .ProcessAsInt(p => height = p);
 
-            new OptionProcessor(firstPageParseResult, "-first")
+            new OptionProcessor(firstPageParseResult, "first")
                 .AddDefault("1")
                 .ProcessAsInt(p => firstPage = p);
 
-            new OptionProcessor(lastPageParseResult, "-last")
+            new OptionProcessor(lastPageParseResult, "last")
                 .ProcessAsInt(p => lastPage = p);
 
-            new OptionProcessor(deviceParseResult, "-device")
+            new OptionProcessor(deviceParseResult, "device")
                 .AddDefault("jpeg")
                 .ProcessAsEnum<GhostscriptDevices>(p => device = p);
         }

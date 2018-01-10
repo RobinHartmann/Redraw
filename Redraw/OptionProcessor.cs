@@ -30,7 +30,7 @@ namespace Redraw
 
             if (!IsSet)
             {
-                throw new OptionException("Option " + optionName + " is mandatory", optionName);
+                throw new OptionException("Option '" + optionName + "' is mandatory", optionName);
             }
 
             return this;
@@ -68,7 +68,7 @@ namespace Redraw
             }
             else if (!int.TryParse(optionValue, out optionIntValue))
             {
-                throw new OptionException("Option " + optionName + " must be a valid integer", optionName);
+                throw new OptionException("Option '" + optionName + "' must be a valid integer", optionName);
             }
 
             optionAction(optionIntValue);
@@ -88,7 +88,7 @@ namespace Redraw
             }
             else if (!Enum.TryParse<T>(optionValue, out optionEnumValue))
             {
-                throw new OptionException("Option " + optionName + " must be part of the enumeration '" + typeof(T).ToString() + "'", optionName);
+                throw new OptionException("Option '" + optionName + "' must be part of the enumeration '" + typeof(T).ToString() + "'", optionName);
             }
 
             optionAction(optionEnumValue);
