@@ -19,12 +19,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installation
 
-Just copy over the generated `gsdll32.dll` as well as `Redraw.exe` and run it. An installation is not needed.
-
-## Ghostscript devices
-
-* [List of supported devices](docs/supported-devices.md)
-* [Details about devices](https://www.ghostscript.com/doc/9.14/Devices.htm)
+Just copy over `gsdll32.dll` as well as `Redraw.exe` and run it. An installation is not needed.
 
 ## Built With
 
