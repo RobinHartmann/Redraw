@@ -95,7 +95,7 @@ namespace Redraw
                     + "DEFAULT: first page of PDF",
                     o => firstPageParseResult = o },
                 { "l|last=",
-                    "last page to render"
+                    "last page to render\n"
                     + "DEFAULT: last page of PDF",
                     o => lastPageParseResult = o },
                 { "?|help",
