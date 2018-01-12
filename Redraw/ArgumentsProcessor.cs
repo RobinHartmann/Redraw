@@ -77,26 +77,26 @@ namespace Redraw
             return new OptionSet()
             {
                 { "i|input=",
-                    "the path to the file to be rendered",
+                    "path to the PDF",
                     o => inputPathParseResult = o },
                 { "o|output=",
-                    "the path to write the resulting image to\n"
+                    "path to write resulting JPEG(s) to\n"
                     + "add %d somewhere to have each of the pages numbered\n"
                     + "DEFAULT: '<input>%d.jpg'",
                     o => outputPathParseResult = o },
                 { "w|width=",
-                    "the width of the resulting image",
+                    "target width of resulting JPEG(s)",
                     o => widthParseResult = o },
                 { "h|height=",
-                    "the height of the resulting image",
+                    "target height of resulting JPEG(s)",
                     o => heightParseResult = o },
                 { "f|first=",
-                    "the first page to render\n"
-                    + "if <last> is not set, only this page will be rendered\n"
-                    + "DEFAULT: '1'",
+                    "first page to render\n"
+                    + "DEFAULT: first page of PDF",
                     o => firstPageParseResult = o },
                 { "l|last=",
-                    "the last page to render",
+                    "last page to render"
+                    + "DEFAULT: last page of PDF",
                     o => lastPageParseResult = o },
                 { "?|help",
                     "show this message and exit",
@@ -146,13 +146,16 @@ namespace Redraw
         {
             Console.WriteLine();
             Console.WriteLine("Redraw " + GetVersionInfo().FileVersion);
-            Console.WriteLine("Renders pdf pages to images");
+            Console.WriteLine("Renders PDF pages to JPEGs");
             Console.WriteLine(GetVersionInfo().LegalCopyright);
             Console.WriteLine();
             Console.WriteLine("Usage: Redraw -i <input> -w <width> -h <height> [OPTIONS]+");
             Console.WriteLine();
             Console.WriteLine("Options:");
             OptionSet.WriteOptionDescriptions(Console.Out);
+            Console.WriteLine();
+            Console.WriteLine("A note on resolution:");
+            Console.WriteLine("width and height of the resulting JPEG(s) will be adjusted to match the PDF's aspect ratio");
         }
 
         private static FileVersionInfo GetVersionInfo()
