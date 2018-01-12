@@ -19,7 +19,6 @@ namespace Redraw
         private static string heightParseResult;
         private static string firstPageParseResult;
         private static string lastPageParseResult;
-        private static string deviceParseResult;
 
         private static string inputPath;
         private static string outputPath;
@@ -27,7 +26,6 @@ namespace Redraw
         private static int height;
         private static int firstPage;
         private static int lastPage;
-        private static GhostscriptDevices device;
 
         private static OptionSet OptionSet
         {
@@ -50,6 +48,7 @@ namespace Redraw
 
                 if (!showUsage)
                 {
+                    ProcessOptions();
                     PostProcessOptions();
                 }
             }
@@ -65,7 +64,7 @@ namespace Redraw
                 return null;
             }
 
-            return new RedrawConfig(inputPath, outputPath, CreateGhostScriptSettings());
+            return new RedrawConfig(inputPath, outputPath, firstPage, lastPage, width, height);
         }
 
         private static OptionSet CreateOptionSet()
@@ -99,17 +98,13 @@ namespace Redraw
                 { "l|last=",
                     "the last page to render",
                     o => lastPageParseResult = o },
-                { "d|device=",
-                    "the GhostscriptDevice used for rendering\n"
-                    + "DEFAULT: 'jpeg'",
-                    o => deviceParseResult = o },
                 { "?|help",
                     "show this message and exit",
                     o => showUsage = o != null }
             };
         }
 
-        private static void PostProcessOptions()
+        private static void ProcessOptions()
         {
             new OptionProcessor(inputPathParseResult, "input")
                 .AssertIsSet()
@@ -133,32 +128,18 @@ namespace Redraw
 
             new OptionProcessor(lastPageParseResult, "last")
                 .ProcessAsInt(p => lastPage = p);
-
-            new OptionProcessor(deviceParseResult, "device")
-                .AddDefault("jpeg")
-                .ProcessAsEnum<GhostscriptDevices>(p => device = p);
         }
 
-        private static GhostscriptSettings CreateGhostScriptSettings()
+        private static void PostProcessOptions()
         {
-            GhostscriptSettings ghostscriptSettings = new GhostscriptSettings();
+            // Size is divided by 10 because for some reason GhostscriptSharp multiplies it by 10
+            width = width >= 10
+                ? width / 10
+                : width;
 
-            GhostscriptPages pages = new GhostscriptPages();
-            pages.Start = firstPage;
-            pages.End = lastPage > firstPage ? lastPage : firstPage;
-            ghostscriptSettings.Page = pages;
-
-            GhostscriptPageSize pageSize = new GhostscriptPageSize();
-            pageSize.Manual = new Size(width, height);
-            ghostscriptSettings.Size = pageSize;
-
-            // a global density of 72 dpi means the dimensions of the resulting image
-            // will match the definition of width and height exactly
-            ghostscriptSettings.Resolution = new Size(72, 72);
-
-            ghostscriptSettings.Device = device;
-
-            return ghostscriptSettings;
+            height = height >= 10
+                ? height / 10
+                : height;
         }
 
         private static void ShowUsage()

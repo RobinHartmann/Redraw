@@ -42,8 +42,8 @@ namespace Redraw
             {
                 outputDir.Create();
             }
-
-            GhostscriptWrapper.GenerateOutput(inputFile.FullName, config.OutputPath, config.GhostscriptSettings);
+            
+            GhostscriptWrapper.GeneratePageThumbs(inputFile.FullName, config.OutputPath, config.FirstPage, config.LastPage, config.Width, config.Height);
 
             return 0;
         }
