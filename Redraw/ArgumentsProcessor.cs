@@ -82,7 +82,7 @@ namespace Redraw
                 { "o|output=",
                     "the path to write the resulting image to\n"
                     + "add %d somewhere to have each of the pages numbered\n"
-                    + "DEFAULT: '<input>%d'",
+                    + "DEFAULT: '<input>%d.jpg'",
                     o => outputPathParseResult = o },
                 { "w|width=",
                     "the width of the resulting image",
@@ -111,7 +111,7 @@ namespace Redraw
                 .Process(p => inputPath = p);
 
             new OptionProcessor(outputPathParseResult, "output")
-                .AddDefault(inputPath + "%d")
+                .AddDefault(inputPath + "%d.jpg")
                 .Process(p => outputPath = p);
 
             new OptionProcessor(widthParseResult, "width")
