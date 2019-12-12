@@ -1,5 +1,5 @@
 # Redraw
-Command line tool for rendering PDF pages to JPEGs
+CLI app for rendering PDF pages to JPEGs
 
 ![Usage](docs/images/usage.png)
 
