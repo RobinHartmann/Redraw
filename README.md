@@ -29,7 +29,7 @@ Just copy over `gsdll32.dll` as well as `Redraw.exe` and run it. An installation
 
 ## Authors
 
-* **Robin Hartmann** - *Initial work* - [robin-hartmann](https://github.com/robin-hartmann)
+* **Robin Hartmann** - [robin-hartmann](https://github.com/robin-hartmann)
 
 ## License
 
