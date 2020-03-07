@@ -8,11 +8,11 @@ CLI app for rendering PDF pages to JPEGs
 
 These instructions will get you a release of this project up and running on your local machine, so that you can start using it.
 
-### 📋 Prerequisites
+### Prerequisites
 
 * [Microsoft .NET Framework 4.0](https://www.microsoft.com/en-us/download/details.aspx?id=17718)
 
-### 🚀 Getting Started
+### Getting Started
 
 Just copy over `gsdll32.dll` as well as `Redraw.exe` and run it. An installation is not needed.
 
@@ -20,7 +20,7 @@ Just copy over `gsdll32.dll` as well as `Redraw.exe` and run it. An installation
 
 These instructions will get you a copy of this project up and running on your local machine for development and testing purposes.
 
-### 📋 Prerequisites
+### Prerequisites
 
 * [Visual Studio 2015/2017](https://www.visualstudio.com/de/vs/) - Fully-featured IDE for Android, iOS, Windows, web, & cloud
 
